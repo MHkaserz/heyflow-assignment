@@ -2,7 +2,7 @@
 
 - This project was initially bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - The interactive JSON functional React component is fully implemented to meet the success criteria.
-- The custom checkbox is created via HTML and CSS only and sits beneath React's VDOM.
+- The custom checkbox is created via HTML and CSS only and resides beneath React's VDOM.
 
 Note: NPM can be used instead of PNPM but you might need to add 'run' before the script key depending on your version of NPM.
 
