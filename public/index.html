@@ -1,43 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Interactive JSON and Custom Checkmark" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Heyflow Assignment</title>
+  <style>
+    .custom-checkbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 3em;
+    }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    .custom-checkbox span {
+      font-size: 2em;
+      line-height: 1em;
+      margin-left: 1ch;
+      user-select: none;
+    }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    input[type="checkbox"] {
+      justify-self: center;
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: transparent;
+      margin: 0;
+
+      font: inherit;
+      color: currentColor;
+      width: 2.3em;
+      height: 2.3em;
+      border: 2px solid currentColor;
+      border-radius: 5px;
+      display: grid;
+      place-content: center;
+    }
+
+    input[type="checkbox"]::before {
+      content: '';
+      -webkit-mask: url(%PUBLIC_URL%/check.svg) no-repeat 50% 50%;
+      mask: url(%PUBLIC_URL%/check.svg) no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+      background-color: white;
+      display: inline-block;
+      width: 2.2em;
+      height: 2.2em;
+      opacity: 0;
+    }
+
+    input[type="checkbox"]:checked {
+      background: black;
+    }
+
+    input[type="checkbox"]:checked::before {
+      opacity: 1;
+    }
+
+    input[type="checkbox"]:focus {
+      outline: max(2px, 0.15em) solid blue;
+      outline-offset: max(2px, 0.15em);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div
+    style="display: flex; flex-direction: column; width: calc(100% - 20px); height: calc(20vh - 20px); padding: 10px;">
+    <h2>Here goes the checkbox solution</h2>
+
+    <label class="custom-checkbox">
+      <input type="checkbox">
+      <span>Custom Checkbox</span>
+    </label>
+  </div>
+</body>
+
 </html>
