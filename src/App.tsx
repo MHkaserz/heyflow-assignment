@@ -14,7 +14,9 @@ const demoData = {
         hasError: false
       },
       [
-        "testing"
+        "testing",
+        null,
+        undefined
       ]
     ]
   }

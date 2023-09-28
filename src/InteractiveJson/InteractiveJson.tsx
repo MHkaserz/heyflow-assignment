@@ -82,14 +82,32 @@ const getKeyValueJSX = (
       keyPath = parentKey;
    }
 
-   if (typeof (value) !== 'object') {
-      let color = value === null ? '#808080' : typeof (value) === 'boolean' ? '#0000FF' : typeof (value) === 'string' ? '#FF6600' : '#00D084';
+   if (value === null) {
+      valueElem = (
+         <span style={{ color: '#808080' }}>
+            null<span style={{ color: 'white' }}>,</span>
+         </span>
+      );
+   }
+
+   if (value === undefined) {
+      valueElem = (
+         <span style={{ color: '#808080' }}>
+            undefined<span style={{ color: 'white' }}>,</span>
+         </span>
+      );
+   }
+
+   if (value !== null && value !== undefined && typeof (value) !== 'object') {
+      let color = typeof (value) === 'boolean' ? '#0000FF' : typeof (value) === 'string' ? '#FF6600' : '#00D084';
       valueElem = (
          <span style={{ color: color }}>
             {JSON.stringify(value, null, 3)}<span style={{ color: 'white' }}>,</span>
          </span>
       );
-   } else {
+   }
+
+   if (value !== null && value !== undefined && typeof (value) === 'object') {
       if (Array.isArray(value)) {
          // handle array
          bracket1 = '[';
